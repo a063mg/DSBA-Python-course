@@ -18,6 +18,7 @@ file = input()
 
 st = os.stat(file)
 
+if args.mtime:
 	print("last modified: %s" % time.ctime(st.st_mtime), args.mtime)
 if args.size:
 	print("the size of file is: %s" % (st.st_size/2**20),"MB")
