@@ -4,7 +4,7 @@ import datetime
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument("-m", "--mtime", help="Print the time of last file modification", choices=['1', '2', '3'])
+parser.add_argument("-m", "--mtime", help="Print the time of last file modification", action="store_true")
 
 parser.add_argument("-s", "--size", help="Print the size of file in MB", action="store_true")
 
