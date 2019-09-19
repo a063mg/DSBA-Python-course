@@ -4,13 +4,13 @@ import datetime
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument("-m", "--mtime", help="Print the time of last file modification")
+parser.add_argument("-m", "--mtime", help="Print the time of last file modification") # ha1.py -m a.txt
 
-parser.add_argument("-s", "--size", help="Print the size of file in MB")
+parser.add_argument("-s", "--size", help="Print the size of file in MB") # ha1.py -s a.txt
 
 # parser.add_argument("--rename", help="Change file name to B", action="store", type=str, default="hw", nargs="=", metavar=None)
 
-parser.add_argument("--rename", help="Something", nargs=2, metavar=None)
+parser.add_argument("--rename", help="Something", nargs=2, metavar=None) # ha1.py --rename B a.txt
 
 args = parser.parse_args()
 
