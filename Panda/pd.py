@@ -5,21 +5,19 @@ split_parameter = ","
 
 parser = argparse.ArgumentParser()
 
-# parser.add_argument("-m", "--mtime", help="Print the time of last file modification") # ha1.py -m a.txt
+#python3.7 -i pd.py --input="train.csv" --output="output.csv" --query='Sex == "female" & Survived == 1' --columns="Survived, Sex"
 
-# parser.add_argument("-s", "--size", help="Print the size of file in MB") # ha1.py -s a.txt
+parser.add_argument("--input", help="--input_file input csv file name") 
 
-# # parser.add_argument("--rename", help="Change file name to B", action="store", type=str, default="hw", nargs="=", metavar=None)
+parser.add_argument("--columns", help="--columns list of columns to select from input csv file") 
 
-parser.add_argument("--input", help="Something") # ha1.py --rename B a.txt
+parser.add_argument("--query", help="--query query string to apply") 
 
-parser.add_argument("--columns", help="Something") # ha1.py --rename B a.txt
-
-parser.add_argument("--query", help="Something") # ha1.py --rename B a.txt
-
-parser.add_argument("--output", help="Something") # ha1.py --rename B a.txt
+parser.add_argument("--output", help="--output_file output csv file name") 
 
 args = parser.parse_args()
+
+pas = True
 
 if args.input:
 	data = pd.read_csv(args.input)
@@ -34,10 +32,12 @@ if args.query:
 		pass
 	except Exception as e:
 		print (e)
+		pas = False
 if args.output:
-	f = open(args.output, "w+")
-	content = df.to_csv(index=False)
-	f.write(content)
-	f.close()
+	if pas:
+		f = open(args.output, "w+")
+		content = df.to_csv(index=False)
+		f.write(content)
+		f.close()
 
 
